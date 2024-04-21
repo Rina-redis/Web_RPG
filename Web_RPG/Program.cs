@@ -7,6 +7,7 @@ builder.Services.AddRazorPages(); //<--This line
 
 // Add services to the container.
 builder.Services.AddControllers();
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
 builder.Services.AddScoped<ICharacterService, CharacterService>();
 
 builder.Services.AddSwaggerGen(c =>
@@ -40,5 +41,6 @@ app.UseSwaggerUI(c =>
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
 
 app.Run();
